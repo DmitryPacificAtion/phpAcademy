@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World</title>
+	<meta name="description" content="">
+</head>
+<body>
+<!-- CSS -->
+<style>
+	div {
+		border: 2px solid black;
+		border-radius: 25px;
+	}
+	.wrap {
+		height: 500px;
+		margin: 0 auto;
+		position: relative;
+		width: 1200px;
+	}
+	.inner1 {
+		height: 150px;
+		width: 150px;
+	}
+	.inner2 {
+		height: 200px;
+		position: absolute;
+		top: calc(50% - 75px);
+		/*top: 50%;				//Аналогично
+		margin-top: -75px;*/
+		right: 0;
+		width: 400px;
+	}
+	.square {
+		border-radius: 0;
+		height: 75px;
+		position: absolute;
+		top: calc(50% - 75px/2);
+		left: calc(50% - 75px/2);
+		width: 75px;
+	}
+</style>
+<!-- HTML -->
+	<div class="wrap">
+		<div class="inner1"></div>
+		<div class="inner2">
+			<div class="square"></div>
+		</div>
+	</div>
+</body>
+</html>
