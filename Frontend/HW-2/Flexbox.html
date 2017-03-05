@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+</head>
+<body>
+	<!-- CSS -->
+	<style>
+	* {
+		padding: 0;
+		margin: 0;
+	}
+		/*Colors*/
+		body 	{ background-color: #e8e8e8;	}
+		header 	{ background-color: #aaa;		}
+		footer 	{ background-color: #aaa;		}
+		.wrap 	{ background-color: blue;		}
+		.cont1 	{ background-color: darksalmon; }
+		.cont2 	{ background-color: purple;		}
+		.cont3 	{ background-color: darkred;	}
+		.cont4 	{ background-color: cyan;		}
+		.cont5 	{ background-color: cornflowerblue; }
+
+		@media screen and (min-width: 320px) {
+			header {
+				margin-bottom: 10px;
+			}
+			footer {
+				margin-top: 10px;
+			}
+			.wrap {
+				display: flex;
+				flex-direction: column;
+				flex-wrap: wrap;
+				justify-content: center;
+				padding: 10px;
+			}
+			.container, header, footer {
+				padding: 10px 30px;
+			}
+
+			.cont1, .cont2, .cont3, .cont4, .cont5 {
+				width: 100%;
+			}
+			.cont5 { order:5; }
+			.cont4 { order:4; } 
+
+		}
+		@media screen and (min-width: 481px) {
+			.wrap {
+				flex-direction: row;
+				justify-content: space-between;
+			}
+			.cont1, .cont2, .cont3, .cont5 {
+				width: 50%;
+			}
+			.cont4 { order:5; } 
+			.cont5 { order:4; }
+		}
+	</style>
+	<!-- HTML -->
+	<header><h1>Header</h1></header>
+	<div class="wrap">
+		<div class="container cont1"><h2>Container 1</h2></div>
+		<div class="container cont2"><h2>Container 2</h2></div>
+		<div class="container cont3"><h2>Container 3</h2></div>
+		<div class="container cont4"><h2>Container 4</h2></div>
+		<div class="container cont5"><h2>Container 5</h2></div>
+	</div>
+</div>
+<footer><h2>Footer</h2></footer>
+</body>
+</html>
