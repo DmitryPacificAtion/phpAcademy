@@ -4,9 +4,9 @@
  * двумя разными способами объявления констант.
  */
 
-define("MY_CONST", 1234325);
-const PI = 3.14;
+define("DAYS_COUNT", 7);
+const MONTH_COUNT = 12;
 
-echo MY_CONST,'<br>';
-echo PI;
+echo DAYS_COUNT,'<br>';
+echo MONTH_COUNT;
 ?>
