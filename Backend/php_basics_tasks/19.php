@@ -11,7 +11,6 @@ if ($a == $b)
     echo 'Значения пермеменных $a и $b равны<br><br>';
 else
     echo 'Пермеменные $a и $b не равны<br><br>';
-var_dump($a);
-echo '<br>';
-var_dump($b);
+
+var_dump($a==$b);
 ?>

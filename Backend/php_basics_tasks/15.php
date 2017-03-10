@@ -7,9 +7,9 @@
  */
 
 $a = 15;
-$b = 23;
+$b = 0;
 
-$operator =  '/';
+$operator =  '%';
 // '+';
 // '-';
 // '/';
@@ -33,7 +33,10 @@ switch ($operator) {
         echo '$a '.$operator.' $b = ', $a * $b ;
         break;
     case '%':
+        if ($b != 0)
         echo '$a '.$operator.' $b = ', $a % $b ;
+        else
+            echo 'Делить на 0 нельзя!';
         break;
     default:
         echo 'Вы ввели неправильный оператор';
