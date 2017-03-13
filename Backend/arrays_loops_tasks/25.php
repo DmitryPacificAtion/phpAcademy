@@ -10,8 +10,18 @@ while ($j < 20) {
     $j++;
 }
 
-foreach ($arrFor as $k) {
-    if ()
+$max = -INF; //  Максимальное число = отрицательная бесконечность
+$min =  INF; //  Минимотное число = положительная бесконечность
+
+foreach ($arr as $k) {
+    if ($k > $max) {
+        $max = $k;
+    }
+    if ($k < $min) {
+        $min = $k;
+    }
 }
+
+echo "max: $max, min: $min";
 
 ?>

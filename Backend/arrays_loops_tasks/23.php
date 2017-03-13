@@ -16,5 +16,3 @@ if (is_numeric($myVar)){
 else
     echo 'Введите число';
 ?>
-
-
