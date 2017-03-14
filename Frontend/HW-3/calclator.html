@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World</title>
+</head>
+<body>
+	<script>
+		var operator =  prompt('Укажите действиекоторое хотите произвести: +, -, /, %, ^, sqrt');
+		var a =  +prompt('Укажите 1-й оператор');
+		var b =  +prompt('Укажите 2-й оператор');
+
+		document.write(calculate(operator, a, b));
+
+		function calculate (operator, a, b){
+
+			switch (operator) {
+				case '+':
+					return a + b;
+				break;
+				case '-':
+					return a - b;
+				break;
+				case '/':
+					if (b)
+						return a / b;
+					else
+					alert( 'На делить 0 нельзя');
+				break;
+				case '*':
+					return a * b;
+				break;
+				case '%':
+					if (b)
+						return a % b;
+					else
+					alert( 'На делить 0 нельзя!');
+				break;
+				case '^':
+					return Math.pow(a, b);
+				break;
+				case 'sqr':
+				case 'ійк':
+				case 'ыйк':
+				case 'sqrt':
+				case 'ійке':
+				case 'ыйке':
+					return Math.sqrt(a, b);
+				break;
+				default:
+					alert('Вы ввели неправильный оператор');
+				break;
+			}
+		}
+
+	</script>
+</body>
+</html>
