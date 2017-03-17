@@ -3,9 +3,12 @@
 // var b =  +prompt('Укажите 2-й оператор');
 
 // document.write(calculate(operator, a, b));
+window.onload = function() {
+	var input = document.querySelector('.display input');
+	var val = input.getAttribute('value');
+	console.log(val);
 
-var input = document.querySelector('.display input');
-var value = input.getAttribute('value');
+
 
 //Butons
 var one = document.getElementById('one');
@@ -27,11 +30,12 @@ var mod = document.getElementById('mod');
 var pow = document.getElementById('pow');
 var sqr = document.getElementById('sqr');
 
-keybord.addEventListener('click', addText(this.innerHTML));
+var keybord = document.getElementsByClassName('keybord');
+one.addEventListener('click', console.log(this.innerHTML));
 
 
 function addText (value) {
-	var result = value + string;
+	var result = value + value;
 	input.setAttribute("value", result);
 }
 
@@ -103,3 +107,5 @@ function pow (a, b) {
 // 	else
 // 		return this;
 // }
+
+};
