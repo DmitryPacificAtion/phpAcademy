@@ -1,0 +1,53 @@
+@charset "UTF-8";
+/* COLORS */
+/* MEDIA */
+@font-face {
+  font-family: 'Conv_PT_Sans-Web-Bold';
+  src: url("fonts/PT_Sans-Web-Bold.eot");
+  src: local("☺"), url("fonts/PT_Sans-Web-Bold.woff") format("woff"), url("fonts/PT_Sans-Web-Bold.ttf") format("truetype"), url("fonts/PT_Sans-Web-Bold.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Conv_PT_Sans-Web-Regular';
+  src: url("fonts/PT_Sans-Web-Regular.eot");
+  src: local("☺"), url("fonts/PT_Sans-Web-Regular.woff") format("woff"), url("fonts/PT_Sans-Web-Regular.ttf") format("truetype"), url("fonts/PT_Sans-Web-Regular.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Conv_PT_Sans-Narrow-Web-Bold';
+  src: url("fonts/PT_Sans-Narrow-Web-Bold.eot");
+  src: local("☺"), url("fonts/PT_Sans-Narrow-Web-Bold.woff") format("woff"), url("fonts/PT_Sans-Narrow-Web-Bold.ttf") format("truetype"), url("fonts/PT_Sans-Narrow-Web-Bold.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Conv_PT_Sans-Narrow-Web-Regular';
+  src: url("fonts/PT_Sans-Narrow-Web-Regular.eot");
+  src: local("☺"), url("fonts/PT_Sans-Narrow-Web-Regular.woff") format("woff"), url("fonts/PT_Sans-Narrow-Web-Regular.ttf") format("truetype"), url("fonts/PT_Sans-Narrow-Web-Regular.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.l--header {
+  height: 75px;
+  padding: 30px;
+}
+
+.l--slider {
+  height: 430px;
+}
+
+.author-name {
+  font-size: 20px;
+}

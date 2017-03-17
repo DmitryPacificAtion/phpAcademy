@@ -8,67 +8,71 @@
 <body>
 	<style>
 		input {
-			font-size: 18px;
-			padding: 5px 15px 5px 5px;
-			text-align: right;
 			border-radius: 20px;
+			font-size: 18px;
+			padding: 7px 15px 7px 5px;
+			text-align: right;
 		}
 		.calculator {
-			max-width: 300px;
-			margin: 0 auto;
 			background-color: #333;
-			padding: 25px 0;
 			border-radius: 20px;
+			margin: 0 auto;
+			max-width: 300px;
+			padding: 10px 0 25px;
 		}
 		.display {
-			margin: 0 auto;
-			width: 225px;
-			margin-bottom: 10px;
+			margin: 20px 0;
+			text-align: center;
 		}
 		.num {
-			padding: 5px;
-			margin: 5px;
-			height: 55px;
-			width: 55px;
-			font-size: 21px;
+			background-color: #eee;
 			border: none;
+			font-size: 21px;
+			height: 50px;
+			margin: 5px;
+			padding: 5px;
+			width: 50px;
 		}
 		.keybord {
 			margin: 0 auto;
-			width: 205px
+			max-width: 210px;
+		}
+		.flex {
+			display: flex;
+			justify-content: space-around;
 		}
 	</style>
 	<div class="calculator">
 		<div class="display">
-			<input type="text" value=0>
+			<input type="text" value="0">
 		</div>
 		<div class="keybord">
-			<div>
+			<div class="flex">
 				<button class='num' id=one >1</button>
 				<button class='num' id=two >2</button>
 				<button class='num' id=three >3</button>
 			</div>
-			<div>
+			<div class="flex">
 				<button class='num' id=four >4</button>
 				<button class='num' id=five >5</button>
 				<button class='num' id=six >6</button>
 			</div>
-			<div>
+			<div class="flex">
 				<button class='num' id=seven >7</button>
 				<button class='num' id=eight >8</button>
 				<button class='num' id=nine >9</button>
 			</div>
-			<div>
+			<div class="flex">
 				<button class='num' id=point >.</button>
 				<button class='num' id=zero >0</button>
 				<button class='num' id=sum >+</button>
 			</div>
-			<div>
+			<div class="flex">
 				<button class='num' id=dif >-</button>
 				<button class='num' id=div >/</button>
 				<button class='num' id=mul >*</button>
 			</div>
-			<div>
+			<div class="flex">
 				<button class='num' id=mod >%</button>
 				<button class='num' id=pow >^</button>
 				<button class='num' id=sqr >Sqr</button>

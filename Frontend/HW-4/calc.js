@@ -2,8 +2,6 @@ var operator =  prompt('Укажите действиекоторое хотит
 var a =  +prompt('Укажите 1-й оператор');
 var b =  +prompt('Укажите 2-й оператор');
 
-document.write(calculate(operator, a, b));
-
 function calculate (operator, a, b){
 	var result = 0;
 	switch (operator) {
@@ -65,10 +63,4 @@ function sqr (a, b) {
 }
 function pow (a, b) {
 	return Math.pow(a, b);
-}
-function point (this) {
-	if (this.isNumeric())
-	return this.toFixed(2);
-	else
-		return this;
 }
