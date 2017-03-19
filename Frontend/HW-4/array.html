@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World</title>
+</head>
+<body>
+	<script>
+		var arr = [1330, 11, 22, 333, 4444];
+		var i = 1;
+		var l = arr.length-1;
+		var center = findCenter(arr);
+		console.log(arr);
+
+		function mySort(arr) {
+			if (i < arr.length/2) {
+				arr[l+i] = arr[center+i];
+				arr[center+i] = arr[center-i];
+				arr[center-i] = arr[l+i];
+				arr.length = arr.length-1;
+				i++;
+				mySort(arr);
+			}
+		}
+		function findCenter(arr) {
+			if( Number.isInteger(arr.length/2)) {
+				return arr.length/2;
+			}
+			else {
+				return Math.floor(arr.length/2);
+			}
+		}
+		mySort(arr);
+		console.log(arr);
+		
+		/*
+			еще нагуглил решение 
+			$b = '';
+			$l  = strlen($a)-1;
+			for ($i = 0; $i < $l/2; $i++) {
+			    $b = $a[$i];
+			    $a[$i] = $a[$l-$i];
+			    $a[$l-$i] = $b;
+			}
+
+
+			еще нагуглил решение 
+			$a[$i] = $a[$l-$i]^$a[$i];
+			$a[$l-$i] = $a[$l-$i]^$a[$i];
+			$a[$i] = $a[$l-$i]^$a[$i];
+			*/
+		</script>
+	</body>
+	</html>	
