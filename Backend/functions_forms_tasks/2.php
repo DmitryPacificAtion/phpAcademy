@@ -3,8 +3,9 @@
 // При отправке формы скрипт должен выдавать ТОП3 длинных слов в тексте.
 // Реализовать с помощью функции.
 
-function findTop3LongWords($string) {
-    $words = explode(' ', $string); // Бьем строку по проблеам и записываем как массив в переменную
+$text = 'Lorem ipsum – псевдо-латинский текст, который используется для веб дизайна, типографии, оборудования, и распечатки вместо английского текста для того, чтобы сделать ударение не на содержание, а на элементы дизайна. Такой текст также называется как заполнитель. Это очень удобный инструмент для моделей (макетов). Он помогает выделить визуальные элементы в документе или презентации, например текст, шрифт или разметка. Lorem ipsum по большей части является элементом латинского текста классического автора и философа Цицерона.';
+function top3Longer($text){
+    $words = explode(' ', $text); // Бьем строку по проблеам и записываем как массив в переменную
 
     usort($words, function($a, $b) {
        return mb_strlen($b) - mb_strlen($a);
@@ -13,25 +14,8 @@ function findTop3LongWords($string) {
     $chunk = array_chunk($words, 3);
 
     return $chunk[0];
-
-//    $wordLength = [];
-//    foreach ( $words as $key => $word) {
-//        $wordLength[$key] = mb_strlen($word);
-//    }
-//
-//    rsort ($wordLength);
-//
-//    $i = 1;
-//    $bigWordsLength = array_splice($wordLength, 3);
-//    $keys = array_keys($bigWordsLength);
-//
-//    $bigWords = [];
-//    foreach ($keys as $key) {
-//        $bigWords = $key;
-//    }
 }
 
-$list = findTop3LongWords('test one lalalala four абрaф');
+var_dump(top3Longer($text));
 
-var_dump($list);
 ?>
