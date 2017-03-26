@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World</title>
+	<meta name="description" content="">
+</head>
+<body>
+	<style>
+		* {
+			margin: 5px;
+		}
+		table {
+			border: 5px solid black;
+			border-collapse: collapse;
+		}
+		td {
+			padding: 10px;
+		}
+	</style>
+<!-- В аттаче код, который надо дописать так чтобы у пользоателя циклически спрашивалось хочет ли он ввесте еще пользователей. И пользователя сохранялись в масив объектов.
+Если пользователь выбирает ввести нового, то в  вызывается фукнция заполнения
+Если позьзователь выбирает посмотреть таблицу, то весь масив генерится в таблицу( подобно тому как мы на паре делали со списком)
+-->
+
+<!-- Хардкор!-->
+ <!-- Сделать форму
+4 поля: имя фамилия возраст пол языки програмирования
+заполнил, кнопку нажал добавил человека в объект, а объект в массив так где все люди.
+
+Потом есть кнопка для вывода всех людей в таблицу, что будет генерироваться js (https://learn.javascript.ru/modifying-document) . Есть колонки и строчки. каждая строка данный об одном человеке.
+
+Есть кнопки для сортировки людей по имени, возрасту и количеству языков. И при этом таблица должна пересортироваться
+
+Удачи -->
+<pre>
+
+	Имя:		<input type="text" id='name' name="name" placeholder="Введите имя"><br>
+	Фамилия:	<input type="text" id='lastName' name="lastName" placeholder="Введите фамилию"><br>
+	Возраст:	<input type="text" id='age' name="age" placeholder="Введите возраст"><br>
+	Технологии:	<input type="text" id='langs' name="langs" placeholder="Введите языки программирования"><br>
+	Ваш пол:	<select id=sex>
+	<option value="Мужчна">Мужчна</option>
+	<option value="Женщина">Женщина</option>
+</select>
+	Сортировка:	<select>
+<option value="По имени">По имени</option>
+<option value="По возрасту">По возрасту</option>
+<option value="По количестку языков">По количестку языков</option>
+</select><br>
+	<input type="submit" name="name" id=add value="Добавить">	<input type="submit" name="name" id=show value="Посмотреть таблицу">
+</pre>
+<div id="tableWrap"></div>
+<script>
+	var persons = [];
+	var person = {};
+	function Person (name, lastName, age, sex, langs) {
+		this.name = name;
+		this.lastName = lastName;
+		this.age = age;
+		this.sex = sex;
+		this.langs = langs;
+	};
+	var addBtn = document.getElementById('add');
+	var showBtn = document.getElementById('show');
+
+	addBtn.addEventListener('click', add);
+	showBtn.addEventListener('click', show);
+
+	person = new Person ('Имя', 'Фамилия', 'Возраст', 'Пол', 'Технологии');
+	persons.push(person);
+
+	function add() {
+		var valName = document.getElementById('name').value;
+		var valLastName = document.getElementById('lastName').value;
+		var valAge = document.getElementById('age').value;
+		var valSex = document.getElementById('sex').value;
+		var valLangs = document.getElementById('langs').value;
+		person = new Person (valName, valLastName, valAge, valSex, valLangs);
+		persons.push(person);
+		console.log(persons);
+		alert('Добавлено');
+	}
+
+	/** TODO:
+	*	Дописать CSS 
+	*	Проверка валидации инпутов
+	*	Проверка создана ли таблица. Если да, то не выводить больше
+	 */
+	function show() {
+		var tableWrap = document.getElementById('tableWrap');
+		var table = document.createElement('table');
+		var tbody = document.createElement('tbody');
+		tableWrap.appendChild(table);
+		// table.appendChild(tbody);
+		for (var i = 0; i < persons.length; i++) {
+			var tr = document.createElement('tr');
+			table.appendChild(tr);
+			for (var k in persons[i]) {
+				var td = document.createElement('td');
+				tr.appendChild(td);
+				td.innerHTML = persons[i][k];
+			}
+		}
+	}
+    </script>
+</body>
+</html>
