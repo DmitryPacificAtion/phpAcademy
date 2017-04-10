@@ -11,8 +11,11 @@
 			margin: 5px;
 		}
 		table {
-			border: 5px solid black;
+			border: 5px solid #333;
 			border-collapse: collapse;
+		}
+		tr {
+			border: 1px solid #333;
 		}
 		td {
 			padding: 10px;
@@ -64,8 +67,8 @@
 	var addBtn = document.getElementById('add');
 	var showBtn = document.getElementById('show');
 
-	addBtn.addEventListener('click', add);
-	showBtn.addEventListener('click', show);
+	addBtn.addEventListener('click', function() { if(validate()) add(); else alert('Данные введены не корректно!'); });
+	showBtn.addEventListener('click', function() { if(document.querySelector('#tableWrap>table') == null) show();});
 
 	person = new Person ('Имя', 'Фамилия', 'Возраст', 'Пол', 'Технологии');
 	persons.push(person);
@@ -83,10 +86,9 @@
 	}
 
 	/** TODO:
-	*	Дописать CSS 
 	*	Проверка валидации инпутов
-	*	Проверка создана ли таблица. Если да, то не выводить больше
-	 */
+	*	Сортировка таблицы
+	*/
 	function show() {
 		var tableWrap = document.getElementById('tableWrap');
 		var table = document.createElement('table');
@@ -103,6 +105,28 @@
 			}
 		}
 	}
-    </script>
+
+	function sortBy($by) {
+
+	}
+	function validate() {
+		var name = document.getElementById('name');
+		var n = name.value.search(/\w+/i);
+		if (n == -1) name.style.borderColor = 'red';
+		console.log(n);
+		var lastName = document.getElementById('lastName');
+		var ln = lastName.value.search(/\w+/i);
+		if (ln == -1) lastName.style.borderColor = 'red';
+		console.log(ln);
+		var age = document.getElementById('age');
+		var a = age.value.search(/[0-9]+/i);
+		if (a == -1) age.style.borderColor = 'red';
+		console.log(a);
+		var langs = document.getElementById('langs').value;
+
+		if(n >= 0 && ln >=0 && a >= 0 && langs) return true;
+		else return false;
+	}
+</script>
 </body>
 </html>
