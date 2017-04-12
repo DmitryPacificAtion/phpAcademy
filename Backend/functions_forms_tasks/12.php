@@ -12,7 +12,7 @@ revers($sentences);
 function revers($sentences) {
     $arrSentences = explode('. ', $sentences);
     $modifiedSentences = [];
-    var_dump($arrSentences);
+    print_r($arrSentences);
     echo '<br>';
     for($i = count($arrSentences)-1; $i >= 0 ; $i--) {
         if ($i != count($arrSentences)-1)
@@ -20,7 +20,7 @@ function revers($sentences) {
 
         array_push($modifiedSentences, $arrSentences[$i]);
     }
-    var_dump($modifiedSentences);
+    print_r($modifiedSentences);
 }
 
 ?>
