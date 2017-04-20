@@ -32,22 +32,30 @@ $path = __DIR__.'./comments.txt';
 		$badWordsList = file_get_contents(__DIR__.'/bad-words-list.txt');
 		$badWordsList = explode(PHP_EOL, $badWordsList);
 		foreach ($comments as $comment):
-            if ($comment === '') continue;
-            list($u, $k) = explode('|',$comment);?>
-            <p><?php echo "<strong>Имя:</strong> $u";?></p>
-            <?php
-            foreach ($badWordsList as $badWord) {
-                $k = mb_strtolower($k);
-                $badWord = mb_strtolower($badWord);
-				if (preg_match($badWord, $k) ) {?>
+			if ($comment === '') continue;
+		list($u, $k) = explode('|',$comment);
+		echo "<p><strong>Имя:</strong> $u</p>";
+		echo "<p><strong>Комментарий:</strong>",check($k, $badWordsList),"</p>";
+		endforeach;
 
-                <p>
-                    <?php echo "<strong>Не корректный комментарий!</strong>"; break; ?>
-                </p>
-                    <?php } }?>
-			<p><?php echo "<strong>Комментарий:</strong> $k";?></p>
+		function check($word, $badWordsList) {
+			$answer = $word;
+			$lowerWord = mb_strtolower($word);
+			$arrayLongerWords = explode(' ', $lowerWord);
+			foreach ($badWordsList as $badWord) {
+				$lowerBadWord = mb_strtolower($badWord);
+				for ($i=0, $length = count($arrayLongerWords); $i < $length ; $i++) { 
+					if ($lowerBadWord !== $arrayLongerWords[i]) continue;
+					else {
+						$answer = "Не корректный комментарий!";
+						break 2;
+					}
+				}
+			}
+			return $answer;
+		}
 
-		<?php endforeach; ?>
+		?>
 	</div>
 	<div class="container" style="margin-top:30px">
 		<form action method="post">
