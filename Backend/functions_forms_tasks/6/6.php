@@ -3,8 +3,7 @@
 // Все загруженные фото должны помещаться в папку gallery и выводиться на странице в виде таблицы.
 
 $uploadImages = $_FILES['images'];
-$uploadFolder = __DIR__.'gallery';
-var_dump($uploadImages);
+$uploadFolder = './gallery';
 
 $showImages = [];
 foreach ( $uploadImages['tmp_name'] as $uploadImagePath) {
@@ -24,13 +23,13 @@ foreach ( $uploadImages['tmp_name'] as $uploadImagePath) {
     <title>Document</title>
 </head>
 <body>
-<form action method="post">
+<form action method="post" enctype="multipart/form-data">
     <input type="file" name="images[]" multiple>
     <p>&nbsp;</p>
     <input type="submit" value=Отправить>
 </form>
 <br>
-<table></table>
+<table>
 <?php
     $counter=0;
     echo '<tr>';
