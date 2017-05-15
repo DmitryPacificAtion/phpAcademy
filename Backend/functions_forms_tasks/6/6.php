@@ -3,14 +3,14 @@
 // Все загруженные фото должны помещаться в папку gallery и выводиться на странице в виде таблицы.
 
 $uploadImages = $_FILES['images'];
-$uploadFolder = './gallery';
+$uploadFolder = __DIR__.'/gallery';
 
 $showImages = [];
 foreach ( $uploadImages['tmp_name'] as $uploadImagePath) {
     $imageName = sprintf('%s-%s.jpg', time(), rand(0,1000));
     $imagePath = sprintf('%s/%s', $uploadFolder, $imageName);
     if (move_uploaded_file($uploadImagePath, $imageName)) {
-        $showImages = $imageName;
+        array_push($showImages, $uploadImagePath);
     }
     else echo 'Не возможно загрузить файл';
 }
@@ -39,7 +39,7 @@ foreach ( $uploadImages['tmp_name'] as $uploadImagePath) {
             echo '</tr><tr>';
             $counter = 0;
         }?>
-        <td><img src="/gallery/<?php echo $item; ?>" alt=""></td>
+        <td><img src="<?php echo $item; ?>" alt=""></td>
 <?php
     endforeach;
     echo '</tr>';

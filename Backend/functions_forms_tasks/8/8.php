@@ -10,7 +10,6 @@ $text = strip_tags($_POST['comment'], '<b>');
 $path = __DIR__.'./comments.txt';
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,9 +32,9 @@ $path = __DIR__.'./comments.txt';
 		$badWordsList = explode(PHP_EOL, $badWordsList);
 		foreach ($comments as $comment):
 			if ($comment === '') continue;
-		list($u, $k) = explode('|',$comment);
+		$tempArray = explode('|',$comment);
 		echo "<p><strong>Имя:</strong> $u</p>";
-		echo "<p><strong>Комментарий:</strong>",check($k, $badWordsList),"</p>";
+		echo "<p><strong>Комментарий:</strong>", check($k, $badWordsList),"</p>";
 		endforeach;
 
 		function check($word, $badWordsList) {
