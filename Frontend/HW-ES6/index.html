@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Reduce</title>
+</head>
+<body>
+	<h1>Hi!</h1>
+	<script>
+// 		Используя reduce получить такой результат
+// function countWords() { }
+// var inputWords = ['Apple', 'Banana', 'Apple', 'Durian', 'Durian', 'Durian']
+// console.log(countWords(inputWords))
+// =>
+// {
+//   Apple: 2,
+//   Banana: 1,
+//   Durian: 3
+// }
+
+//acc = accumulated, cur = current
+var arr = ['Apple', 'Banana', 'Apple', 'Durian', 'Durian', 'Durian'];
+var newObj = arr.reduce(function(acc, cur) {
+	acc[cur] = acc[cur] ? ++acc[cur] : 1;
+
+	return acc;
+}, {});
+
+
+
+</script>
+</body>
+</html>
