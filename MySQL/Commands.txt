@@ -1,0 +1,74 @@
+Шпаргалка по коммандам
+http://jeka.by/post/1003/rabotaem-s-mysql-cherez-komandnuyu-stroku/
+
+1) Заходим в папку с mySQL, заходим в ней в папку bin (там олжен лежать файлик mysql.exe)
+
+2) В консоли переходим по этому пути
+
+3) Вводим mysql-u USER -pPASSWORD;
+
+4) CREATE DATABASE database CHARACTER SET utf8 COLLATE utf8_general_ci; - моздаем таблицу и указываем кодировку
+
+5) USE database; - используем суозданную базу, чтобы дальше с ней работать
+
+6) CREATE TABLE table ( field-1 type [ atributes-1 ], ...., field-n type [ atributes-n ], [ addiction atributes] ); - создаем таблицу
+
+7) CREATE TABLE table ( ... ) ENGINE InnoDB [или MySam]; - создаем таблицу и указываем движок СУБД;
+
+8) DESCRIBE table; - показать инфо о таблице
+
+9) DROP DATABASE database; - удалить БД
+
+10) DROP TABLE table; - удалить таблицу
+
+11) INSERT INTO table  [ field-1, ...., field-n ]  VALUES ( value1, ...., value n ) ; - вставить значения в таблицу
+
+12) SELECT * FROM table; - выбор всех значений из таблицы
+
+13) SELECT field-1, field-2 FROM table;
+
+14) SELECT * FROM table  WHERE field  IN (value1, ...., value-n) - Оператор IN ( ... ) позволяет задавать критерий, согласно которому значения поля должны попадать в определенное множество значений.
+
+15) SELECT * FROM table WHERE field BETWEEN ... AND ... ; - выбор между значений
+
+16) SELECT * FROM table WHERE field LIKE ... ; % - определяет любое количество любых символов, даже нулевое, _ - определяет один любой символ.
+
+17) AS задает псевдоним (SELECT id, name AS student, age, phone AS p_number FROM student;)
+
+18) SELECT DISTINCT fields FROM table; - выборка без повторяющихся значений
+
+19) SELECT ... FROM ... WHERE ... GROUP BY field-1, ...., field-n; - группировка значений
+
+20) Еще вариант SELECT ... FROM ... GROUP BY field-1, ...., field-n; 
+
+21) SELECT fields FROM table WHERE <критерий> GROUP BY <поля для группировки> HAVING <условия для групп> ORDER BY <поля для сортировки> LIMIT <параметры отбора записей; - полная форма записи.
+
+22) SELECT MAX()/MIN()/COUNT()\AVG)\SUM() AS somthing FROM table .... ; -агрегирcющие запросы
+
+23) SELECT AVG(avg) Оператор HAVING - это аналог WHERE, но для групп. Предложение HAVING записывается после определения группы GROUP BY
+
+24) SELECT ... FROM ... WHERE ... GROUP BY ... ORDER BY field-1 [ASC | DESC], ... , field-n [ASC | DESC]; максимальный синтаксис селекта с ORDER BY
+
+25) Для управления количеством записей в результирующей таблице используется оператор LIMIT. Этот оператор записывается в самом конце запроса и имеет следующую конструкцию:
+
+SELECT ... ... ... LIMIT [offset, ] count;
+
+offset - это номер строки в результирующей таблицы (от 0), от которой необходимо отсчитывать записи
+count - это число, которое означает то, сколько записей из результирующей таблицы необходимо отобрать, начиная от offset
+
+26) UPDATE таблица SET поле-1 = значение-1, поле-2 = значение-2, ... , поле-N = значение-N WHERE критерий. В случае, если не записать предложение WHERE, то изменения коснутся абсолютно всех записей.
+
+27) DELETE FROM таблица WHERE критерий; - удаляет записи из таблицы. Если не указывать WHERE то удаляться все записи
+
+28) Подзапросы
+SELECT * FROM student WHERE age > ( SELECT AVG (age) FROM student );
+
+29) ALTER TABLE - обновление данных в таблице
+
+30) ALTER TABLE table ADD new_row TYPE() DEFAULT 'def_value';
+
+31) ALTER TABLE table ADD INDEX(field); - добавить индекс по полю к таблице
+
+32) SHOW INDEX FROM table; - показать индекс таблицы
+
+33) DROP INDEX index_field ON table; - удалить индекс таблицы
