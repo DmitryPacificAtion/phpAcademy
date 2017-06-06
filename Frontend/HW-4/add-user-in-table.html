@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		var persons = [];
+		var person = {
+			name: '',
+			sname: '',
+			age: ''
+		};
+
+		function ask() {
+			person.name = prompt("Введите свое имя:");
+			person.sname = prompt("Введите свою фамилию:");
+			person.age = prompt("Введите свой возраст:");
+			persons.push(person);
+		}
+
+		function say() {
+			document.write("Имя: " + person.name + " ");
+			document.write("Фамилия: " + person.sname + " ");
+			document.write("Возраст: " + person.age + " ");
+			document.write(" ");
+		}
+		do {	
+			ask();
+			say();
+			var flag = prompt("<em>1 - </em>Если хотите добавить еще пользователя. <em>2 - </em>Если хотите посмотреть таблицу.")
+		}
+		while(flag) {
+			if (flag == 1) {
+			}
+			else if (flag ==  2) {
+				alert("Функционал в разработке");
+				return;
+			}
+			else {
+				alert("Неизвестное значение. Попробуйте еще раз");
+			}
+		}
+	</script>
+</body>
+</html>
