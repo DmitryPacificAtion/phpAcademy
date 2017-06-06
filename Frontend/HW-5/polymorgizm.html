@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World</title>
+</head>
+<body>
+<!-- 
+3 сделать реазацию полиморфизма
+фигура -> квадрат. треугольник. круг. ромб.
+для метода getSquare()
+переопределись соответствующие методы с Object чтобы можно было делать
+console.log( triangle + circle)
+-->
+
+<script>
+
+	var flag = true;
+	while (flag) {
+		var userFigure = prompt('Введите название фигуры: triangle, rectangle, circle');
+		if (userFigure == 'triangle' || userFigure == 'rectangle' || userFigure == 'circle') flag = false;
+	}
+	var figure = new Fugure(userFigure);
+	alert('Площадь равна ' + figure.getSquare());
+
+	function Fugure (figure) {
+		var flag = true;
+		switch (figure) {
+			case 'triangle': 
+			while (flag) {
+				var a = +prompt('Введите длину стороны a');
+				var b = +prompt('Введите длину стороны b');
+				var c = +prompt('Введите длину стороны c');
+				if (a > 0 && b > 0 && c > 0) flag = false;
+				else 'Введите число, которое больше нуля';
+			}
+			return new Triangle(a, b, c);
+			break;
+			case 'rectangle':
+			while (flag) {
+				var a = +prompt('Введите длину стороны a');
+				var b = +prompt('Введите длину стороны b');
+				if (a > 0 && b > 0) flag = false;
+				else 'Введите число, которое больше нуля';
+			}
+			return new Rectangle(a, b);
+			break;
+			case 'circle':
+			while (flag) {
+				var a = +prompt('Введите радиус r');
+				if (a > 0) flag = false;
+				else 'Введите число, которое больше нуля';
+			}
+			return new Circle(a);
+			break;
+		}
+	}
+
+	function Circle (r) {
+		this.r = r;
+		this.getSquare = function () {return Math.PI*r*r; };
+	}
+	function Rectangle (a, b) {
+		this.a = a;
+		this.b = b;
+		this.getSquare = function () {return a*b; };
+	}
+	function Triangle (a, b, c) {
+		this.a = a;
+		this.b = b;
+		this.c = c;
+		var p = (a + b + c)/2;
+		this.getSquare = function () { return Math.sqrt(p*(p - a)*(p - b)*(p - c)); };
+	}
+
+</script>
+</body>
+</html>
