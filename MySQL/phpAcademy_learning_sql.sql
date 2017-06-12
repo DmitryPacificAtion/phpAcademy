@@ -130,3 +130,4 @@ SELECT * FROM country JOIN continent ON continent.id = country.continent_id ORDE
 # Добавить в таблицу country поле для премьер-министра страны и заполнить записи значениями. 
 # Вывести на экран таблицу, в которой будет представлены все президенты и все премьер-министры всех стран в одну колонку.
 # UNION дорисовывает другую таблицу снизу: SELECT name FROM student UNION ALL SELECT name FROM teacher; - выведем имена всех учителей и учиников
+
