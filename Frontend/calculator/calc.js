@@ -6,7 +6,6 @@
 window.onload = function() {
 	var input = document.querySelector('.display input');
 	var val = input.getAttribute('value');
-	console.log(val);
 
 
 
@@ -30,8 +29,9 @@ var mod = document.getElementById('mod');
 var pow = document.getElementById('pow');
 var sqr = document.getElementById('sqr');
 
-var keybord = document.getElementsByClassName('keybord');
+// var keybord = document.getElementsByClassName('keybord');
 one.addEventListener('click', console.log(this.innerHTML));
+two.addEventListener('click', console.log(this.innerHTML));
 
 
 function addText (value) {

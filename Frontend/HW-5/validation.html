@@ -2,37 +2,72 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Hello World</title>
-	<meta name="description" content="">
+	<title>Document</title>
+	<link rel="stylesheet" href="http://hydrocolon.com.ua/css/style.min.css">
 </head>
+<style>
+	.l--first-screen__form { float:none; max-width: 500px; margin: 0 auto; }
+	.l--first-screen__form input { margin: 0 20px 40px; width: 410px;}
+</style>
 <body>
-	<!-- 4 сделать форму с 4 полями(email телефон имя возраст)
-	добавить валидацию по регулярном выражению и добавлять бордер если поле не прошло валидацию -->
-	<form>
-		<div class="form-group">Оставьте заявку и&nbsp;наши менеджеры свяжутся с&nbsp;Вами<br><br>
-			<input type="text" id=userName name=userName placeholder="Введите свое имя"><br><br>
-			<input type="email" id=email name=email placeholder="Введите свой E-mail"><br><br>
-			<input type="text" id=age name=age placeholder="Укажите возраст"><br><br>
-			<input type="text" id=tel name=tel placeholder="Укажите телефон"><br><br>
-			<button id=btn>Отправить</button>
+	<div class="container">
+		<div class="col-md-4 l--first-screen__form">
+			<form id="form">
+				<div class="l--first-screen__form__title">Оставьте заявку и&nbsp;наши менеджеры свяжутся с&nbsp;Вами</div>
+				<input type="text" name="name" placeholder="Введите свое имя" required="">
+				<input type="email" name="email" placeholder="Введите свой E-mail" required="">
+				<input type="text" name="age" placeholder="Введите свой возраст" required="">
+				<input type="tel" name="tel" placeholder="Введите свой телефон" required="">
+				<button class="cta">Отправить</button>
+			</form>
 		</div>
-	</form>
+	</div>
 	<script>
-		var name = document.getElementById('userName'), 
-			email = document.getElementById('email'), 
-			tel = document.getElementById('tel'), 
-			age = document.getElementById('age'), 
-			btn = document.getElementById('btn');
+		var inp_name = document.querySelector('#form input[name="name"]');
+		var inp_email = document.querySelector('#form input[name="email"]');
+		var inp_age = document.querySelector('#form input[name="age"]');
+		var inp_tel = document.querySelector('#form input[name="tel"]');
 
-		console.log(name); // name.addEventListener('blur', function() { validate(this); } );
-		// console.log(email); // email.addEventListener('blur', function() { validate(this); } );
-		// console.log(tel); // tel.addEventListener('blur', function() { validate(this); } );
-		// console.log(age); // age.addEventListener('blur', function() { validate(this); } );
-		// console.log(btn); // btn.addEventListener('blur', function() { validate(this); } );
-		
-		// function validate(elem) {
-		// 	console.log(elem);
-		// }
+		inp_name.addEventListener('blur',  function() { if( !validate(this) ) this.setAttribute('style', 'border-color:red;')});
+		inp_email.addEventListener('blur',  function() { if( !validate(this) ) this.setAttribute('style', 'border-color:red;')});
+		inp_age.addEventListener('blur',  function() { if( !validate(this) ) this.setAttribute('style', 'border-color:red;')});
+		inp_tel.addEventListener('blur',  function() { if( !validate(this) ) this.setAttribute('style', 'border-color:red;')});
+
+
+		function validate(elem) {
+			switch (elem) {
+				case inp_name:
+					var pattern = /\w+]/i;
+					console.log(pattern.test(inp_name.value));
+					// return pattern.test(inp_name.value);
+				case inp_email:
+					var pattern = /\w/i;
+					console.log(typeof inp_email.value);
+					// return pattern.test(inp_email.value);
+					break;
+				case inp_age:
+					var pattern = /\d+/;
+					var age +inp_age.value;
+					if ( pattern.test(age) ) {	
+						if (age > 0 && age < 18) {
+							alert('Вам еще нет 18');
+						}
+						if (age > 130 ) 
+							alert('Вам еще нет 18');
+						return  true;
+					}
+					else return false;
+					break;
+				case inp_tel:
+					var pattern = /380[0-9]+/
+					pattern
+					if (pattern.test(inp_age.value)) return true;
+					else alert('Телефон должен начинаться с 380');
+					break;
+				default: 
+					return false;
+			}
+		}
 	</script>
 </body>
 </html>
