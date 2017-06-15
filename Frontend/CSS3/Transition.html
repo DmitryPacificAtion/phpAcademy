@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello World</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+</head>
+<body>
+	<!-- CSS -->
+	<style>
+		* {
+			float: none;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+		}
+		/*Colors*/
+		body 	{ background-color: #e8e8e8;	}
+		header 	{ background-color: #aaa;		}
+		footer 	{ background-color: #aaa;		}
+		.flex 	{ background-color: blue; perspective: 1000px;}
+		.cont1 	{ background-color: darksalmon; perspective: 1000px; transform: rotateY(133.25deg); transform-origin: left; }
+		.cont2 	{ background-color: purple;		transform: rotateY(107.4deg); transform-origin: left; }
+		.cont3 	{ background-color: darkred;	transform: rotateY(-107.3801deg); transform-origin: left; }
+		.cont4 	{ background-color: cyan;		transform: rotateY(133.25deg); transform-origin: left; }
+		.cont5 	{ background-color: cornflowerblue; transform: rotateY(-133.2285deg); transform-origin: right; }
+
+
+		/*
+		Не могу понять как сделать для всех экранов одинаково 
+		Full HD http://prntscr.com/fk044m
+		1280*1024 http://prntscr.com/fk04nh
+		*/
+
+		.flex:hover .cont1 { transform: rotateY(0deg); transition-duration: 1s; }
+		.flex:hover .cont2 { transform: rotateY(0deg); transition-duration: 1s; transition-delay: 1s; }
+		.flex:hover .cont3 { transform: rotateY(0deg); transition-duration: 1s; transition-delay: 2s; }
+		.flex:hover .cont4 { transform: rotateY(0deg); transition-duration: 1s; transition-delay: 3s; }
+		.flex:hover .cont5 { transform: rotateY(0deg); transition-duration: 1s; transition-delay: 4s; }
+
+
+		@media screen and (min-width: 320px) {
+			header {
+				margin-bottom: 10px;
+			}
+			footer {
+				margin-top: 10px;
+			}	
+			header, footer {
+				padding: 10px 30px;
+			}
+			.flex {
+				display: flex;
+				flex-wrap: wrap;
+				padding: 10px;
+			}
+			.container {
+				flex-basis: 100%;
+			}
+			.container h2 {
+				padding: 10px 30px;
+			}
+		}
+		@media screen and (min-width: 481px) {
+			.cont1, .cont2, .cont3, .cont5 {
+				flex-basis: 50%;
+				justify-content: space-between;
+			}
+			.cont4 {
+				order:5;
+			} 
+			.cont5 {
+				order:4;
+			}
+		}
+		@media screen and (min-width: 769px) {
+			.flex {
+				padding: 20px;
+			}
+			.container h2{
+				padding: 20px 60px;
+			}
+			.cont1, .cont2, .cont3 {
+				flex-basis: 33.3333%;
+			}
+			.cont4 {
+				flex-basis: 50%;
+				order:4;
+			}
+			.cont5 {
+				flex-basis: 50%;
+				order:5;
+			}
+		}
+	</style>
+	<!-- HTML -->
+	<header><h1>Header</h1></header>
+	<div class="flex">
+		<div class="container cont1"><h2>Container 1</h2></div>
+		<div class="container cont2"><h2>Container 2</h2></div>
+		<div class="container cont3"><h2>Container 3</h2></div>
+		<div class="container cont4"><h2>Container 4</h2></div>
+		<div class="container cont5"><h2>Container 5</h2></div>
+	</div>
+</div>
+<footer><h2>Footer</h2></footer>
+</body>
+</html>
