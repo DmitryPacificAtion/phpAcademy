@@ -6,7 +6,7 @@
  * Time: 0:15
  */
 
-spl_autoload_register( function ($class) {
+spl_autoload_register(function ($class) {
     // Меняем слэши в другую сторону
     // \\Some\\NmaSpace --> Some/NameSpace.php
     $path = preg_replace('/\\\/', '/', $class);

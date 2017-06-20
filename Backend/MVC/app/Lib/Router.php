@@ -2,17 +2,31 @@
 
 namespace app\Lib;
 
+use app\Controller\HomeController;
+
 class Router
 {
+    private $routes = [];
+
+    function  __construct(array $routes)
+    {
+        $this -> routes = $routes;
+    }
+
     public function getController($requestUri) {
-        // Routing
-        // Проверяем есть ли такой контроллер, если нет отдаем стандартный
-        if(preg_match('/blog/i', $requestUri)) {
-            // Blog controller
-            $controller = new \app\Controller\BlogController();
+        // Инициализируем
+        $controller = null;
+
+        //Пробегаем форычом массив routes,
+        // в котором ключ - это регулярное выражение, а значение - класс, экземпляр которого мы создадим.
+        foreach ($this -> routes as $regex => $controllerClass) {
+            if(preg_match($regex, $requestUri)) {
+                $controller = new $controllerClass;
+                break; // Смысл ходить дальше, если уже нашли
+            }
         }
-        else {
-            // Home controller
+        // если регулярка не совпала, то показываем главную
+        if ($controller === null) {
             $controller = new \app\Controller\HomeController();
         }
         return $controller;
