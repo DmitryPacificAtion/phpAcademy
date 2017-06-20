@@ -22,7 +22,7 @@ class Router
         foreach ($this -> routes as $regex => $controllerClass) {
             if(preg_match($regex, $requestUri)) {
                 $controller = new $controllerClass;
-                break; // Смысл ходить дальше, если уже нашли
+                break; // Нашли - уходим
             }
         }
         // если регулярка не совпала, то показываем главную

@@ -4,7 +4,7 @@
 include 'autoloader.php';
 
 //Достаем урл к которому обращаемся
-$requestUri = $_SERVER['REQUEST_URI'];
+$requestUri = strtolower($_SERVER['REQUEST_URI']); // Пришел сеошник, сказал что урлы капс локом - это плохо
 $routes = require __DIR__.'/app/config/routingConfig.php';
 
 //Создаем экземпляр класса Router и вызываем нужный контроллер
