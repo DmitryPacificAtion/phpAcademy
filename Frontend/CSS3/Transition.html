@@ -19,26 +19,47 @@
 		body 	{ background-color: #e8e8e8;	}
 		header 	{ background-color: #aaa;		}
 		footer 	{ background-color: #aaa;		}
-		.flex 	{ background-color: blue; perspective: 1000px;}
-		.cont1 	{ background-color: darksalmon; perspective: 1000px; transform: rotateY(133.25deg); transform-origin: left; }
-		.cont2 	{ background-color: purple;		transform: rotateY(107.4deg); transform-origin: left; }
-		.cont3 	{ background-color: darkred;	transform: rotateY(-107.3801deg); transform-origin: left; }
-		.cont4 	{ background-color: cyan;		transform: rotateY(133.25deg); transform-origin: left; }
-		.cont5 	{ background-color: cornflowerblue; transform: rotateY(-133.2285deg); transform-origin: right; }
+		.flex 	{ background-color: blue;   perspective: 800px;		}
+		.cont1 	{ 
+			animation-name: move;
+			animation-duration: 1s;
+			background-color: darksalmon;
+			transform-origin: left;
+		}
+		.cont2 	{ 
+			background-color: purple;
+			animation-name: move;
+			animation-duration: 1s;
+			animation-delay: 1s;
+			transform-origin: left;
+		}
+		.cont3 	{
+			background-color: darkred;
+			animation-name: move;
+			animation-duration: 1s;
+			animation-delay: 2s;
+			transform-origin: left;
+		}
+		.cont4 	{ 
+			background-color: cyan;
+			animation-name: move;
+			animation-duration: 1s;
+			animation-delay: 3s;
+			transform-origin: left;
+		}
+		.cont5 	{ 
+			background-color: cornflowerblue;
+			transform-origin: right;
+			animation-name: move;
+			animation-duration: 1s;
+			animation-delay: 4s;
+		}
 
-
-		/*
-		Не могу понять как сделать для всех экранов одинаково 
-		Full HD http://prntscr.com/fk044m
-		1280*1024 http://prntscr.com/fk04nh
-		*/
-
-		.flex:hover .cont1 { transform: rotateY(0deg); transition-duration: 1s; }
-		.flex:hover .cont2 { transform: rotateY(0deg); transition-duration: 1s; transition-delay: 1s; }
-		.flex:hover .cont3 { transform: rotateY(0deg); transition-duration: 1s; transition-delay: 2s; }
-		.flex:hover .cont4 { transform: rotateY(0deg); transition-duration: 1s; transition-delay: 3s; }
-		.flex:hover .cont5 { transform: rotateY(0deg); transition-duration: 1s; transition-delay: 4s; }
-
+		@keyframes move {
+			from { transform: rotateY(90deg);}
+			to { transform: rotateY(0deg); }
+		}
+		
 
 		@media screen and (min-width: 320px) {
 			header {
