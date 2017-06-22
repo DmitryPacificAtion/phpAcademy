@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Generate table</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+	<script>
+	// Генерим таблицу
+		var cells = 4; //+prompt('Укажите число столбцов'); 
+		var rows = 3; //+prompt('Укажите число строк');
+		$('body').append('<table border="1px solid black"><tbody></tbody></table>');
+		
+		renderTable(rows, cells);
+
+	// Находим сумму по столбцам
+	var findingRows = $('tbody');
+	var a = findingRows.reduce( function(x, sum){
+		return x + sum;
+	}, 0);
+	console.log(a);
+
+	// for (var i = 0, frl = findingRows.length; i < frl; i++) {
+	// 	findingRows[i]
+	// }
+
+	function renderTable(rows, cells) {
+		for (var i = 0; i < rows; i++ ) {
+			var trs = '';
+			var tds = '';
+			for (var j = 0; j < cells;  j++) {
+				tds += '<td>' + Math.floor(Math.random() * (10 - 1) + 1 ) + '</td>';
+			}
+			trs += '<tr>' + tds + '</tr>';
+			$('tbody').append(trs);
+		}
+	}
+</script>
+</body>
+</html>
