@@ -2,7 +2,7 @@
 
 // Роуты и их данные делаем в виде массива
 return [
-  '/blog/' => \app\Controller\BlogController::class,
-    '/admin/' => \app\Controller\AdminController::class,
-    '/about-us/' => \app\Controller\AboutUs::class,
+    '/blog/i' => \app\Controller\BlogController::class,
+    '/admin/i' => \app\Controller\AdminController::class,
+    '/about\\-us/i' => \app\Controller\AboutUsController::class,
 ];

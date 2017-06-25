@@ -10,8 +10,10 @@ class AdminController
 
     public function indexAction()
     {
-        $message = 'Admin'; #$this->logIn();
+        $message = $this->logIn();
         return $message;
+
+        //TODO: Переписать вход/выход из админки с помощью куки и сессий
     }
     public function logIn() {
         $l = $p = null;
@@ -19,7 +21,7 @@ class AdminController
     <form method="POST">
         <input type="text" name="login" placeholder="Login">
         <input type="password" name="password" placeholder="Password">
-        <input type="button" name="submit" value="Log In">
+        <input type="submit" name="submit" value="Log In">
     </form>
 <?php
         if($_SERVER['REQUEST_METHOD'] == 'POST') {

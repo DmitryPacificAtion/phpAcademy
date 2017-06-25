@@ -3,7 +3,7 @@
 namespace app\Controller;
 
 
-class AboutUs
+class AboutUsController
 {
     public function indexAction() {
         return 'About us';

@@ -16,7 +16,6 @@ class Router
     public function getController($requestUri) {
         // Инициализируем
         $controller = null;
-
         //Пробегаем форычом массив routes,
         // в котором ключ - это регулярное выражение, а значение - класс, экземпляр которого мы создадим.
         foreach ($this -> routes as $regex => $controllerClass) {
