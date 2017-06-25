@@ -23,19 +23,19 @@ class AdminController
         <input type="password" name="password" placeholder="Password">
         <input type="submit" name="submit" value="Log In">
     </form>
-<?php
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            if (isset($_POST['login']) && isset($_POST['password'])) {
-                $l = $_POST['login'];
-                $p = $_POST['password'];
+    <?php
+            if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                if (isset($_POST['login']) && isset($_POST['password'])) {
+                    $l = $_POST['login'];
+                    $p = $_POST['password'];
+                }
             }
-        }
-        if($l === self::$admin && $p === self::$password) {
-            return "<script>document.write('Admin');</script>";
-        } elseif ($l === null || $p === null) {
-            return 'Log in, please';
-        }
-        else return 'Wrong login or password';
-}
+            if($l === self::$admin && $p === self::$password) {
+                return "<script>document.write('Admin');</script>";
+            } elseif ($l === null || $p === null) {
+                return 'Log in, please';
+            }
+            else return 'Wrong login or password';
+    }
 }
 ?>

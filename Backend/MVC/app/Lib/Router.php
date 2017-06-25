@@ -13,21 +13,41 @@ class Router
         $this -> routes = $routes;
     }
 
-    public function getController($requestUri) {
+    public function getController($requestUri, $requestMethod) {
         // Инициализируем
-        $controller = null;
+        $controllerClassAndAction = null;
         //Пробегаем форычом массив routes,
         // в котором ключ - это регулярное выражение, а значение - класс, экземпляр которого мы создадим.
-        foreach ($this -> routes as $regex => $controllerClass) {
-            if(preg_match($regex, $requestUri)) {
-                $controller = new $controllerClass;
+        foreach ($this -> routes as $route) {
+            $regex = $route['path'];
+            $controllerClass = $route['controller'];
+            $method = $route['method'];
+            $action = isset($route['action'])
+                ? $route['action'].'Action'
+                : 'indexAction';
+            if($this->matchRoute($requestMethod, $requestUri, $route)) {
+                $controllerClassAndAction = [
+                    $controllerClass,
+                    $action
+                ];
+
                 break; // Нашли - уходим
             }
         }
-        // если регулярка не совпала, то показываем главную
-        if ($controller === null) {
-            $controller = new \app\Controller\HomeController();
+        // если регулярка не совпала, то показываем 404
+        if ( empty($controllerClassAndAction)) {
+            $controllerClassAndAction = [
+                $this ->routes['default']['controller'], 'indexAction',
+            ];
+            //TODO: релизовать главную и 404
+//            $controller = new \app\Controller\HomeController();
+//            $controllerClass = $this->routes['Not Found']['controller'];
+//            $controller = new \app\Controller\NotFoundController();
         }
-        return $controller;
+        return $controllerClassAndAction;
+    }
+    public function matchRoute ($requestMethod, $requestUri, array $route) {
+
+        return $route['method'] === $requestMethod && preg_match($route['path'], $requestUri);
     }
 }
