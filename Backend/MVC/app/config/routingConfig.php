@@ -11,7 +11,7 @@ return [
     'blog' => [
         'path' => '/blog/i',
         'controller' => \app\Controller\BlogController::class,
-        'action' => 'index',
+        'action' => 'list',
         'method' => 'GET',
     ],
     'admin' => [

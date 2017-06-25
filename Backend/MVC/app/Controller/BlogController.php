@@ -2,6 +2,8 @@
 
 namespace app\Controller;
 
+use app\Model\BlogModel;
+
 class BlogController
 {
     public function indexAction() {
@@ -9,6 +11,11 @@ class BlogController
     }
 
     public  function listAction() {
-        return 'Post from blog';
+        $blogModel = new BlogModel();
+        $posts = $blogModel->getPosts();
+
+        require __DIR__.'/../View/blogPosts.html.php';
+
+//        return 'Blog list';
     }
 }
