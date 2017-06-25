@@ -2,7 +2,7 @@
 namespace app\Controller;
 
 
-class AdminController
+class AdminController extends AbstractController
 {
     private static $admin = 'admin';
     private static $password = '1234';

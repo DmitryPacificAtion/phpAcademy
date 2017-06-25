@@ -1,5 +1,6 @@
 <?php
 
+
 namespace app\Model;
 
 class BlogModel {

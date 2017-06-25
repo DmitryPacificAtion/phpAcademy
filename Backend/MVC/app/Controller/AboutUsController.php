@@ -3,7 +3,7 @@
 namespace app\Controller;
 
 
-class AboutUsController
+class AboutUsController extends AbstractController
 {
     public function indexAction() {
         return 'About us';

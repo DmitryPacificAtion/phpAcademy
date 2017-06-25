@@ -1,4 +1,7 @@
 <?php
+/**
+ * @var array $posts
+ */
 ?>
 
 <div>
