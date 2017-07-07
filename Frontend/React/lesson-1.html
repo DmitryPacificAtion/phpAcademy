@@ -19,19 +19,13 @@
 
 	var Header = React.createClass({
 		render: function() {
-			return <header className="container-fluid"><div className="container"><h1>{this.props.headerContent.title}</h1></div></header>;
-		}
-	});
-	
-	var Main = React.createClass({
-		render: function () {
-			return <main className="container">{this.props.mainContent.text}</main>;
+			return <header className="container"><h1>{this.props.headerContent.title}</h1></header>;
 		}
 	});
 
 	var Footer = React.createClass({
 		render: function() {
-			return <footer className="container-fluid">{this.props.footerContent.copyright}</footer>;
+			return <footer className="container">{this.props.footerContent.copyright}</footer>;
 		}
 	});
 
@@ -74,20 +68,15 @@
 
 	var App = React.createClass({
 		render: function() {
-			var heeead =  function() { 
-				return <Header headerContent={this.props.headerContent}/>
-			};
 			var list = this.props.thumbnailData.map(function(thumbnailProps){
 				return <Thumbnail {...thumbnailProps} />
 			});
-			var maaain = function () {
-				return <main className="container">{list}{list}{list}</main>
-			}
-			var fooot = function() {
-				return <Footer footerContent={this.props.footerContent}/>
-			}
-			return <div className="container">{heeead}{maaain}{fooot}</div>;
-		}
+			return <div className="container">
+				<Header headerContent={this.props.headerContent}/>
+				<main className="container">{list}{list}{list}</main>
+				<Footer footerContent={this.props.footerContent}/>
+			</div>;
+	}
 	});
 
 	var options = {
@@ -116,10 +105,6 @@
 			nav: ["Home", "Profile", "Messages"],
 			title: "My site"
 			},
-		mainContent: {
-			title: "This is my first React App",
-			text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro non quasi modi ex eveniet vero nemo, eaque quam architecto unde."
-		},
 		footerContent: {
 			copyright: "Copyright 2017"
 		}
