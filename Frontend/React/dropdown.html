@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hello World</title>
+<script src="http://fb.me/react-0.13.0.js"></script>
+<script src="http://fb.me/JSXTransformer-0.13.0.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+<script type="text/jsx">
+class Dropbox extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log('Its state: ' + this.state);
+  }
+  opener() {
+    this.setState({
+      open: !this.state.open
+    })
+  }
+  render () {
+    return (
+    <div className="container">
+      <div className={"dropdown" + (this.props.myToggle === undefined ? '' : this.props.myToggle)} id="dropdown">
+        <Button text={this.props.defaultText} opener={this.opener}/>
+        <List items={this.props.items}/>
+      </div>
+    </div>
+    )
+  }
+}
+class Button extends React.Component {
+  render () {
+    return <button 
+    className="btn btn-warning" 
+    onClick={this.props.opener} >{this.props.text}</button>
+  }
+}
+class List extends React.Component {  
+  render() {
+    var listItems = this.props.items.map(function(itemName) {
+      return <li><a href="#">{itemName}</a></li>
+    });
+    return <ul className="dropdown-menu">
+        {listItems}
+      </ul>;
+  }
+}
+
+var options = {
+  defaultText: "Click me",
+  items: ["Lorem", "Ipsum", "Dolor"],
+  myToggle: ''
+};
+var element = React.createElement(Dropbox, options);
+React.render(element, document.body);
+</script>
+</body>
+</html>
